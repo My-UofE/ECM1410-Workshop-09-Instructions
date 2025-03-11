@@ -66,13 +66,14 @@ We can convert a date stored as `int` epoch day back to a `LocalDate` using `Loc
 
 #### TASK 2
 
-Write a test application `TestPostApp.java` which creates a post (with information as below) and prints the created object. 
+Write a test application `TestPostApp.java` which creates a post with information as below:
 
-```
-Author: "Alex Adams"
-Subject: "Help with Java"
-Message: "Hi, could anyone help me I need to learn how to code in java!"
-```
+ - Author: `Alex Adam`
+ - Subject: `Help with Java`
+ - Message: `Hi, could anyone help me I need to learn how to code in java!`
+
+
+Add code to print the object (using the `toString()` as above). You should see output:
 
 As the date in the above posts is unspecified the constructor will use the current date from `LocalDate.now()`.
 
