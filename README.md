@@ -225,6 +225,20 @@ public interface MessageBoardInterface extends Serializable {
 }
 ```
 
+### `IDInvalidException.java`
+
+The interface includes a custom exception which is thrown when an interface method is called with an invalid `postID` argument.
+
+To set up the custom exception we need to save the following code in file `IDInvalidException.java`:
+
+```java
+public class IDInvalidException extends RuntimeException {
+    public IDInvalidException(String m) {
+        super(m);
+    }
+}
+```
+
 ### `MessageBoard.java`
 
 Write a `MessageBoard` class to implement this interface. 
