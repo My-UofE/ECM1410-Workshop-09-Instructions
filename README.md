@@ -386,18 +386,14 @@ The following shows how we can save the MessageBoard data to file:
 
 ```java
 public void saveMessageBoard(String filename) throws IOException{
-        try (
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename))) {
-            // store boardName attribute
-            out.writeObject(boardName);
-            // convert posts to array Post[] to simplifies the deserialisation
-            Post[] postArray = posts.toArray(new Post[posts.size()]);
-            //  store Post array
-            out.writeObject(postArray);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
+    ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename)));
+    // store boardName attribute
+    out.writeObject(boardName);
+    // convert posts to array Post[] to simplifies the deserialisation
+    Post[] postArray = posts.toArray(new Post[posts.size()]);
+    //  store Post array
+    out.writeObject(postArray);
+} 
 ```
 
 Write the corresponding `loadMessageBoard()` method.
@@ -444,12 +440,12 @@ javac -d bin -cp bin src/messageboard/*.java
 jar cvf ./build/mboard_v1.0.jar -C bin .
 ```
 
- - you can test your program using:
+ - you can test your package with your test programs. Note you will have to add line `import messageboard.*;` to the top of your files to import the package.
 
  ```sh
 javac -cp ./build/mboard_v1.0.jar ./TestSystem/*.java
 java -cp ./build/mboard_v1.0.jar:TestSystem TestMBApp
-java -cp ./build/mboard_v1.0.jar:TestSystem TestMBAppLoad
+java -cp ./build/mboard_v1.0.jar:TestSystem TestMBLoadApp
  ```
 
 Well done! You have finished workshop 9.
