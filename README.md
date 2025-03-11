@@ -278,8 +278,9 @@ Add the following code that lets us access the message board data. As several of
 
     public int[] getPostIDs() {
         int[] postIDs = new int[posts.size()];
+        int i = 0;
         for (Post post : posts) {
-            postIDs[i] = post.getPostID();
+            postIDs[i++] = post.getPostID();
         }
         return postIDs;
     }
