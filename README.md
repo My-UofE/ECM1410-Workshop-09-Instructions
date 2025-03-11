@@ -73,7 +73,7 @@ Write a test application `TestPostApp.java` which creates a post with informatio
  - Message: `Hi, could anyone help me I need to learn how to code in java!`
 
 
-Add code to print the object (using the `toString()` as above). You should see output:
+Add code to print the object (using the `toString()` as above). 
 
 As the date in the above posts is unspecified the constructor will use the current date from `LocalDate.now()`.
 
