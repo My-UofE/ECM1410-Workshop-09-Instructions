@@ -260,7 +260,7 @@ public class MessageBoard implements Serializable {
         this.boardName = boardName;
         this.posts = new ArrayList<>();
     }
-
+}
 ```
 
 You can see that the implementation of the messageboard system has attributes of a board name, and a list of posts that have been added. The constructor for the message board, takes the name and sets up a new empty `ArrayList` to store the posts.
