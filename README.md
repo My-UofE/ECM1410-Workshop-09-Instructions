@@ -421,7 +421,7 @@ Create a second test program called `TestMBLoadApp.java`. This should create a m
 
 The final interface method to implement is `savePostAsTextFile()`. This should call the `saveAsTextFile()` method from your `Post` class to save a given post.
 
-In your `TestMBLoadApp.java` file add code to find the post with subject including search term `windows`, and to save the first matching post (there should be only one!) as test file "windowspost.txt".
+In your `TestMBLoadApp.java` file add code to find the post with subject including search term `windows`, and to save the first matching post (there should be only one!) as test file `windowspost.txt`.
 
 One this is working edit the `MessageBoard` definition to specify it `implements MessageBoardInterface` and check it compiles without errors.
 
