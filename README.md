@@ -373,7 +373,7 @@ Add the method `searchPostsByDate()` and in your test application check that wit
 
 Note: If you use an `ArrayList` so you can flexibly store the `PostID` values, you will have to use the `Integer` obejct type and convert the result to a `int[]` before returning, i.e. using code like:
 
-```
+```java
 List<Integer> postIDList = new ArrayList<Integer>();
 
 // do selection and fill list
