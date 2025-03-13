@@ -371,6 +371,19 @@ Date: (as epoch date) 20149
 
 Add the method `searchPostsByDate()` and in your test application check that with a `startDate` of `20147` and `endDate` of `20149` you can correctly select these posts using the method you wrote, and display them.
 
+Note: If you use an `ArrayList` so you can flexibly store the `PostID` values, you will have to use the `Integer` obejct type and convert the result to a `int[]` before returning, i.e. using code like:
+
+```
+List<Integer> postIDList = new ArrayList<Integer>();
+
+// do selection and fill list
+
+// to convert to int[]
+int n = postIDList.size();
+int[] postIDArray = new int[n];
+for(int i = 0; i < n; i++) postIDArray[i] = postIDList.get(i);
+```
+
 ### Adding `serialisable` to save/load board
 
 
@@ -386,7 +399,7 @@ The following shows how we can save the MessageBoard data to file:
 
 ```java
 public void saveMessageBoard(String filename) throws IOException{
-    ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename)));
+    ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename));
     // store boardName attribute
     out.writeObject(boardName);
     // convert posts to array Post[] to simplifies the deserialisation
