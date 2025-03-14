@@ -134,17 +134,18 @@ Hint. To write a string to file we use code like:
 ```java
 BufferedWriter out = new BufferedWriter(new FileWriter(filename));
 out.write( "Hello World" );
+out.close();
 ```
 
-Your method should throw any IOError that results from the operation i.e.
+Your method should throw any IOException that results from the operation i.e.
 
 ```java
-public void saveAsTextFile(String filename) throws IOError {
+public void saveAsTextFile(String filename) throws IOException {
     
 }
 ```
 
-Test your code by saving the example post to file `mypost.txt` using a `try` and `catch` as indicated below:
+Test by adding the following in `TestPostApp.java`, saving the example post to file `mypost.txt` using a `try` and `catch` as indicated below:
 
 ```java
 try {
