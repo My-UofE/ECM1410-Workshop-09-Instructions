@@ -68,10 +68,12 @@ We can convert a date stored as `int` epoch day back to a `LocalDate` using `Loc
 
 Write a test application `TestPostApp.java` which creates a post with information as below:
 
- - Author: `Alex Adam`
- - Subject: `Help with Java`
- - Message: `Hi, could anyone help me I need to learn how to code in java!`
 
+| | |
+|-|-|
+| Author: | `Alex Adam` |
+| Subject: | `Help with JavaE` |
+|  Message: | `Hi, could anyone help me I need to learn how to code in java!` |
 
 Add code to print the object (using the `toString()` as above). 
 
@@ -119,13 +121,35 @@ Also add a method to print a formatted version of the post
     }
 ```
 
-Create a method that can save the formatted post as a text file (not serialising it!). Hint refer to the slides from Week 8. Test your code by saving the example post to file `mypost.txt`. 
+Create a method that can save the formatted post as a text file (not serialising it!). Hint refer to the slides from Week 8. 
 
 Check you can open and view the resulting file.
 
+Hint. To write a string to file we use code like:
+
 ```java
-public void saveAsTextFile(String filename){
+BufferedWriter out = new BufferedWriter(new FileWriter(filename));
+out.write( "Hello World" );
+```
+
+**UPDATE Friday 13th March** Updated to clarify how to handle exceptions
+
+Your method should throw any IOError that results from the operation i.e.
+
+```java
+public void saveAsTextFile(String filename) throws IOError {
     
+}
+```
+
+Test your code by saving the example post to file `mypost.txt` using a `try` and `catch` as indicated below:
+
+```java
+try {
+        // code to save the post
+} catch( IOException ex ) {
+        System.out.println("File not saved.");
+        ex.printStackTrace();
 }
 ```
 
@@ -270,7 +294,7 @@ The interface has been designed so that it does not directly deal with the Post 
 
 #### TASK 4
 
-Add the following code that lets us access the message board data. As several of the interface methods require us to find a post from its `postID` attribute we have added a helper function that takes `postID` and returns its index in the `posts` `ArrayList`. If the `postID` does not exist it throws an `IDInvalidException:
+Add the following code that lets us access the message board data. As several of the interface methods require us to find a post from its `postID` attribute we have added a helper function that takes `postID` and returns its index in the `posts` `ArrayList`. If the `postID` does not exist it throws an `IDInvalidException`:
 
 ```java
     public String getBoardName() {
@@ -315,29 +339,29 @@ To test your `MessageBoard` code create a file `TestMBApp.java`.
 
 In the main method of this file create a new `MessageBoard` with board name "Coding Support" and use `addPost()` to post the following messages:
 
-```
-Author: "Alex Adams"
-Subject: "Help with Java"
-Message: "Hi, could anyone help me I need to learn how to code in java!"
-```
+| | |
+|-|-|
+| Author: | `Alex Adam` |
+| Subject: | `Help with Java` |
+| Message: | `Hi, could anyone help me I need to learn how to code in java!` |
 
-```
-Author: "Belinda Bennett"
-Subject: "Help with Java"
-Message: "Hi Alex. Yes I can send some tutorials I found useful."
-```
+| | |
+|-|-|
+| Author; | `Belinda Bennett` |
+| Subject: | `Help with Java` |
+|  Message: | `Hi Alex. Yes I can send some tutorials I found useful.` |
 
-```
-Author: "Cindy Carter"
-Subject: "Coding on a Chromebook"
-Message: "Does anyone know how to set up Python on a chromebook?"
-```
+| | |
+|-|-|
+| Author: | `Cindy Carter` |
+| Subject: | `Coding on a Chromebook` |
+|  Message: | `Hi, could anyone help me I need to learn how to code in java!` |
 
-```
-Author: "Dennis Dobson"
-Subject: "Windows problems"
-Message: "My windows laptop is stuck on a reboot loop. Does anyone know what to do!"
-```
+| | |
+|-|-|
+| Author: | `Dennis Dobson` |
+| Subject: | `Windows problems` |
+|  Message: | `My windows laptop is stuck on a reboot loop. Does anyone know what to do!` |
 
 To check these have been correctly added use `getPostIDs` to retrieve the posts and print them to screen using `getFormattedPost()`.
 
@@ -347,42 +371,39 @@ Check that your test application compiles and runs as expected.
 
 Next add the methods `searchPostsBySubject()` and `deletePost()`. 
 
-Hint. The interface requires you to return a `int[]`. You can create a new `List<Post>` and select and add the matching posts. Loop over this list to form a `int[]` containing the `postID` values.
+Hint. As before while searching you can can store the posts within a `List<Post>`, then loop over this to return a `int[]` containing the `postID` values.
 
-In your test application check your methods, but selecting all posts with a subject matching `java` and deleting the posts from the message board. After deleting select and print the board messages to check the posts were deleted correctly.
+In your test application check your methods, by selecting all posts with a subject matching `java` and deleting the posts from the message board. 
+
+After deleting select and print the board messages to check the posts were deleted correctly.
 
 #### TASK 6
 
-Below your existing code in `TestMBApp.java` Add two new posts, but with adjusted dates as follows (you will need to edit `MessageBoard.java` to add a second `addPost` method that can accept a date...)
+Below your existing code in `TestMBApp.java` Add two new posts, but with adjusted dates. 
 
-```
-Author: "Ellie"
-Subject: "Java IDE"
-Message: "Can someone recommend a Java IDE?"
-Date: (as epoch date) 20148
-```
-
-```
-Author: "Fred Fanshaw"
-Subject: "Java IDE"
-Message: "I just use VS Code"
-Date: (as epoch date) 20149
-```
-
-Add the method `searchPostsByDate()` and in your test application check that with a `startDate` of `20147` and `endDate` of `20149` you can correctly select these posts using the method you wrote, and display them.
-
-Note: If you use an `ArrayList` so you can flexibly store the `PostID` values, you will have to use the `Integer` obejct type and convert the result to a `int[]` before returning, i.e. using code like:
+To do this ou will need to edit `MessageBoard.java` to add a second `addPost` method that can accept a date, e.g. like 
 
 ```java
-List<Integer> postIDList = new ArrayList<Integer>();
-
-// do selection and fill list
-
-// to convert to int[]
-int n = postIDList.size();
-int[] postIDArray = new int[n];
-for(int i = 0; i < n; i++) postIDArray[i] = postIDList.get(i);
+public int addPost(String author, String subject, String message, int epochDate)
 ```
+
+| | |
+|-|-|
+| Author: | `Ellie` |
+| Subject: | `Java IDE` |
+| Message: | `Can someone recommend a Java IDE?` |
+| Date: | `20148` (as epoch date) |
+
+| | |
+|-|-|
+| Author: | `Fred Fansha` |
+| Subject: | `Java IDE` |
+| Message: | `I just use VS Code` |
+| Date: | `20149` (as epoch date) |
+
+
+Add the method `searchPostsByDate()` and in your test application check that with a `startDate` of `20147` and `endDate` of `20149` you can correctly select just these posts using the method you wrote, and display them.
+
 
 ### Adding `serialisable` to save/load board
 
@@ -409,19 +430,54 @@ public void saveMessageBoard(String filename) throws IOException{
 } 
 ```
 
-Write the corresponding `loadMessageBoard()` method.
+Write the corresponding `loadMessageBoard()` method which should throw `IOException, ClassNotFoundException` as indicated in the interface.
 
-Hint. Refer to the week 8 slides for how to deserialise. You will have to first load the `boardName` and then read in the `Post[]` array.
+Hint. Refer to the week 8 slides for how to deserialise. 
 
-Check the save method works by saving the MessageBoard to file `codingsupport.ser` at the end of your `TestMessageBoardApp.java`.
+You will have to first load the `boardName` and then read in the `Post[]` array.
 
-Create a second test program called `TestMBLoadApp.java`. This should create a main class that creates a new MessageBoard and uses the load method to restore the posts from the saved file. Check they are loaded correctly by displaying the loaded posts to screen.
+Check the save method works by saving the MessageBoard to file `codingsupport.ser` at the end of your `TestMessageBoardApp.java`, handling the exception as indicated below
+
+```java
+try {
+        // code to save the message board
+} catch( IOException ex ) {
+        System.out.println("Board not saved.");
+        ex.printStackTrace();
+}
+```
+
+Create a second test program called `TestMBLoadApp.java`. This should create a main class that creates a new MessageBoard and uses the load method to restore the posts from the saved file. It should handle the thrown exceptions as indicated below.
+
+```
+try {
+    // code to load message board
+} catch( IOException ex ) {
+    System.out.println("Board not loaded.");
+    ex.printStackTrace();
+} catch( ClassNotFoundException ex ) {
+    System.out.println("Could not find class.");
+    ex.printStackTrace();
+}
+```
+
+Check they are loaded correctly by displaying the loaded posts to screen.
+
 
 #### TASK 8 
 
 The final interface method to implement is `savePostAsTextFile()`. This should call the `saveAsTextFile()` method from your `Post` class to save a given post.
 
-In your `TestMBLoadApp.java` file add code to find the post with subject including search term `windows`, and to save the first matching post (there should be only one!) as test file `windowspost.txt`.
+In your `TestMBLoadApp.java` file add code to find the post with subject including search term `windows`, and to save the first matching post (there should be only one!) as test file `windowspost.txt`. Catch and handle the exceptions as above i.e.
+
+```java
+try {
+        // code to save the post
+} catch( IOException ex ) {
+        System.out.println("File not saved.");
+        ex.printStackTrace();
+}
+```
 
 One this is working edit the `MessageBoard` definition to specify it `implements MessageBoardInterface` and check it compiles without errors.
 
