@@ -1,5 +1,9 @@
 # Workshop Week 09: Serialisation and IO
 
+**UPDATE Friday 13th March** Updated to clarify how to handle exceptions
+
+Please check the additional gudiance on how to deal with the exceptions and implement it in your code.
+
 ## MessageBoard java project
 
 In this workshop we are going to create a messageboard application in which users can add and view posts.
@@ -131,8 +135,6 @@ Hint. To write a string to file we use code like:
 BufferedWriter out = new BufferedWriter(new FileWriter(filename));
 out.write( "Hello World" );
 ```
-
-**UPDATE Friday 13th March** Updated to clarify how to handle exceptions
 
 Your method should throw any IOError that results from the operation i.e.
 
@@ -519,5 +521,25 @@ java -cp ./build/mboard_v1.0.jar:TestSystem TestMBLoadApp
 
 Well done! You have finished workshop 9.
 
-Make sure you commit and push your work to the GitHub classroom so that it can be graded!
+You can test your system using a (basic) text user interface.
+
+Follow the instructions below to test your system...
+
+ - First download the additional files with code to run the frontend of the system (Message Board user interface and test application). This interfaces with your code by using the methods defined in the `MessageBoardInterface.java` file:
+
+```sh
+curl -O -J -L https://github.com/My-UofE/ECM1410-Workshop-09-Instructions/raw/refs/heads/main/TestUI.zip
+unzip -o TestUI.zip; rm TestUI.zip
+```
+
+You can compile these using the MessageBoard class stored in your `jar` file and run the resulting applciation:
+
+```sh
+javac -cp ./build/mboard_v1.0.jar ./TestUI/*.java
+java -cp ./build/mboard_v1.0.jar:TestUI TestMBUIApp
+```
+
+Try to test all the possible functions to verify your code works as expected.
+
+Make sure you commit and push your work to the GitHub classroom so that it can be graded, and that you have followed the steps in the instructions as directed.
 
