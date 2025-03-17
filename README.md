@@ -1,5 +1,11 @@
 # Workshop Week 09: Serialisation and IO
 
+**UPDATE Monday 17th March**
+
+I have provided a demo user interface class that can be used to test your code. Instructions are at the very bottom of this page. If the test user interface code does not run when used in conjunction with your MessageBoard.java backend, this is indicative of an issue i.e. you may be graded 0 for the workshop. Please visit Harrison 107 between 9:35-12:25 on Tuesday morning if you have an issue you cannot solve yourself. 
+
+A note on exceptions. **The `MessageBoard.java` class is not meant to catch any exceptions** and the methods should throw those as listed in the `MessageBoardInterface.java` (they get handled by the user interface system. 
+
 **UPDATE Friday 13th March** Updated to clarify how to handle exceptions
 
 Please check the additional gudiance on how to deal with the exceptions and implement it in your code.
