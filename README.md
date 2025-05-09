@@ -6,7 +6,7 @@ Workshop grading is now complete. In your W9 codespace directory please run the 
 
 ```bash
 curl https://raw.githubusercontent.com/My-UofE/ECM1410-Workshop-09-Instructions/refs/heads/main/grading.zip -o ./grading.zip 
-unzip grader.zip
+unzip grading.zip
 bash ./test_workshop_09/do_grading.sh
 ```
 
