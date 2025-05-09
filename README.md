@@ -1,5 +1,15 @@
 # Workshop Week 09: Serialisation and IO
 
+**UPDATE Friday 9th May**
+
+Workshop grading is now complete. In your W9 codespace directory please run the following commands if you wish to run the grading script yourself:
+
+```bash
+curl https://raw.githubusercontent.com/My-UofE/ECM1410-Workshop-09-Instructions/refs/heads/main/grading.zip -o ./grading.zip 
+unzip grader.zip
+bash ./test_workshop_09/do_grading.sh
+```
+
 **UPDATE Monday 17th March**
 
 Judst to say last Friday I also provided a demo user interface class that can be used to test your code. Instructions are at the very bottom of this page. If the test user interface code does not run when used in conjunction with your MessageBoard.java backend, this is indicative of an issue i.e. you may be graded 0 for the workshop. Please visit Harrison 107 between 9:35-12:25 on Tuesday morning if you have an issue you cannot solve yourself. 
